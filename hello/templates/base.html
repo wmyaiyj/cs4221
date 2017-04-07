@@ -23,12 +23,12 @@
     <div class="collapse navbar-collapse" id="defaultNavbar1">
       <!-- Goto upload.html -->
       <ul class="nav navbar-nav">
-          <li><a href="{% url 'upload' %}">Upload a File<span class="sr-only">(current)</span></a></li>
+          <li><a href="{% url 'upload' %}">&nbsp &nbsp Upload a File<span class="sr-only">(current)</span></a></li>
       </ul>
       <!-- Goto FAQ.html and Document.html -->
       <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Documentation</a></li>
+          <li><a href="{% url 'user_manual' %}">User Manual</a></li>
+          <li><a href="{% url 'documentation' %}">Documentation</a></li>
       </ul>
     </div>
   </div>
