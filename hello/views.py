@@ -32,6 +32,11 @@ class HomePageView(View):
 def homePage(request):
     return render(request, 'index.html', {})
 
+def user_manual(request):
+    return render(request, 'user_manual.html', {})
+
+def documentation(request):
+    return render(request, 'documentation.html', {})
 
 def download(request):
     if request.method == 'POST' and request.session.get('output_json'):
