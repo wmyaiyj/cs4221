@@ -5,6 +5,8 @@ from hello import views
 
 urlpatterns = [
     url(r'^$', views.homePage, name='home'),
+    url(r'^user_manual$', views.user_manual, name='user_manual'),
+    url(r'^documentation$', views.documentation, name='documentation'),
     url(r'^upload$', views.upload, name='upload'),
     url(r'^generate$', views.generate, name='generate'),
     url(r'^choose_key$', views.choose_key, name='choose_key'),
