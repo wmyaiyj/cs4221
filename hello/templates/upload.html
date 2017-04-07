@@ -4,7 +4,14 @@
 {% block title %}XML File Upload{% endblock %}
 
 {% block content %}
-  <div class="row">
+
+{% if uploaded_file_error %}
+<div class="alert alert-danger" align="center">
+  Error occurs: {{uploaded_file_error}}
+</div>
+{% endif %} 
+
+<div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h3 class="text-center" style="color:#717171;"><strong>Upload a local file in XML Format</strong></h3>
     </div>
@@ -20,12 +27,5 @@
         </div>
       </form>
   </div>  
-
-{% if uploaded_file_error %}
-<br>
-<div class="alert alert-danger">
-  <p>Error occurs: {{uploaded_file_error}}</p>
-</div>
-{% endif %}
 
 {% endblock %}
