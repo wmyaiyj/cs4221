@@ -1,16 +1,75 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
 {% extends "base.html" %}
 {% load staticfiles%}
 
 {% block title %}Documentation{% endblock %}
 
 {% block content %}
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <h3 class="text-center" style="color:#717171;"><strong>Documentation</strong></h3>
-    </div>
-  </div>
-  <div class="row" style="width: 100px; margin: 20px auto 0 auto;">
+<div class="panel panel-default" style="margin: 20px 20px auto 20px;">
+<div class="container-fluid" style="margin: 20px 20px auto 20px;">
 
-  </div>  
+<article class="markdown-body entry-content" itemprop="text"><h2><a id="user-content-cs4221-term-project" class="anchor" aria-hidden="true"></a>
+ER Diagram (XML) to JSON Schema converter</h2>
+<br>
+<h3><a id="user-content-feature-summary" class="anchor" aria-hidden="true"></a>Feature Summary</h3>
+<ul>
+<li>Allow user to upload an XML file representing Entity-Relationship diagrams
+and generates JSON Schema accordingly.</li>
+<li>Validate uploaded file is of supported extension (.xml).</li>
+<li>Validate the file contains valid ER objects, e.g. no missing primary key or circular dependency etc.</li>
+<li>Allow user to choose primary key if multiple candidate keys are found.</li>
+<li>Add Unique constraints for non-primary keys.</li>
+<li>Allow user to merge a relationship into an entity table if [1,1] cardinality is found.</li>
+<li>Support weak entity.</li>
+</ul>
+<br>
+<h3><a id="user-content-project-structure" class="anchor" aria-hidden="true"></a>Project Structure</h3>
+<pre><code>- hello # root dir
+    - urls.py       # URL to view mapper
+    - views.py      # UI logic
+    - converter.py  # main convert logic
+    - /data         # contains sample data for demo and test
+    - /static
+        - /hello    # UI assets
+    - /templates
+        - base.html                     # main page (container)
+        - choose_key.html               # UI component for choosing primary key
+        - choose_merge.html             # UI component for choosing to merge table
+        - display_uploaded_file.html    # UI component for display ER diagram xml
+        - upload.html                   # UI component for uploading file
+</code></pre>
+<br>
+<h3><a id="user-content-how-to-run" class="anchor" aria-hidden="true"></a>How to run</h3>
+<br>
+<h4><a id="user-content-prerequisite" class="anchor" aria-hidden="true"></a>Prerequisite</h4>
+<p>This project is built upon <a href="https://bitnami.com/stack/django">Bitnami Django</a>.
+Make sure you set up local environment via Bitnami Django Installer.</p>
+<br>
+<h4><a id="user-content-start-server" class="anchor" aria-hidden="true"></a>Start server</h4>
+<p>Assuming you have set up the local environment with Apache server and Postgres,
+you need start localhost before running the application. Bitnami provides an application to do so via GUI.</p>
+<br>
+<h4><a id="user-content-start-the-app" class="anchor" aria-hidden="true"></a>Start the app</h4>
+<p>To start the app, go to djangostack directory (e.g. /Applications/djangostack-1.10.6-0 on Mac).
+Open use_djangostack terminal and go to the same directory via command line.</p>
 
+<code>cd /Applications/djangostack-1.10.6-0/apps/django/django_projects/cs4221</code>
+<br><br>
+<p>In /cs4221 directory, run the following command:</p>
+<code>./manage.py runserver localhost:8888</code>
+<br><br>
+<p>We choose port 8888 to avoid conflict with default.</p>
+<p>Now open your browser and enter <code>http://localhost:8888/hello/upload</code>, you will see the upload page.
+You can then play with it.</p>
+</article>
+</div>
+</div>
 {% endblock %}
